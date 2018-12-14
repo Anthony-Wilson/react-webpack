@@ -1,14 +1,13 @@
-require('./src/css/index.css')
-require('./src/css/style.scss')
-let imageObject = require('./images/collect.png')
-
 import React, { PureComponent } from 'react'
 import ReactDOM from 'react-dom'
 
-class Greeting extends React.Component {
+import App from './src/index'
+require('./src/css/style.scss')
+
+export default class Home extends PureComponent {
   render() {
-    return <h1>Hello</h1>;
+    return <App/>
   }
 }
 
-ReactDOM.render(Greeting, document.getElementById('root'))
+ReactDOM.render(<Home/>, document.getElementById('root'))
