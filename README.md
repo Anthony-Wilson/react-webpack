@@ -1,3 +1,5 @@
+webpack+react的基本配置，可以直接拿来使用，以后会添加`mui`吧
+
 # 一次关于webpack与react结合的伟大实验
 下面是在配置`webpack4` `react16.6.3`的时候遇到的一些问题，不过最终终于解决
 
