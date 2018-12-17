@@ -105,6 +105,43 @@ mode: process.env.NODE_ENV ? process.env.NODE_ENV : "development",
 ```
 具体的还是需要看配置。比如上面的css提前插件中，有一个`disable`属性就是这个用处，如果是开发环境就不用进行提取了。在`config`文件夹中的单个webpack就是对webpack配置的分离，根目录的`webpack.config.js`在根据具体的环境进行具体的使用。当前处于哪个环境可以更加nodejs的全局变量`process`确定。`process.env.NODE_ENV`的值就是当前的环境，有两个，一个是`production`，另一个是`development`。
 
+这里需要说明的是如何配置`webpack.config.js`
+
+最开始我是把`extract-text-webpack-plugin`配置在`webpack.config.js`中。但是这样在更新css样式的时候是不会触发webpack的热更新的，所以这种写法不正确。那么就需要单独的配置。不同的环境采用不同的配置方法。但是问题来了，如果开发环境与生产环境不同的只有一点点，那么不可能全部都重新写一遍。如果配置少还可以。所以这里就需要把基本的配置（相同的配置）写在一个基本的配置文件里面，这里是`config`文件夹下面的`webpack.config.base.js`，让后在`webpack.config.dev.js`和`webpack.config.prod.js`里面将需要的配置合并起来。最开始我试过自己合并，但是会有问题，所以这里推荐使用[webpack-merge插件](`https://www.npmjs.com/package/webpack-merge`)
+
+具体的使用
+```
+const merge = require('webpack-merge');
+const baseConfig = require('./webpack.config.base')
+
+module.exports = merge(baseConfig, {
+  devtool: 'inline-source-map',
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader']
+      },{
+        test: /\.(sass|scss)$/,
+          use: ['style-loader', 'css-loader', 'sass-loader']
+      },
+    ]
+  },
+  devServer: {
+    port: '3000',
+    host: '0.0.0.0',
+    hot: true,
+    compress: true,
+    inline: true,
+    // 自动打开默认浏览器
+    // open: true,
+    stats: 'errors-only',
+    // quiet: true
+  }
+})
+```
+需要注意的是：**webpack的配置文件里面的引用模块文件需要使用ES5的require语法，而不要使用ES6的import语法**
+
 按理说webpack还应该配置一个供测试人员测试的环境`webpack.config.test.js`。这里就不在进行处理说明。
 
 ## 问题二：在使用babel-loader的时候总是报错

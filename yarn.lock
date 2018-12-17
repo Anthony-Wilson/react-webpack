@@ -5922,6 +5922,13 @@ webpack-log@^2.0.0:
     ansi-colors "^3.0.0"
     uuid "^3.3.2"
 
+webpack-merge@^4.1.5:
+  version "4.1.5"
+  resolved "http://registry.npm.taobao.org/webpack-merge/download/webpack-merge-4.1.5.tgz#2be31e846c20767d1bef56bdca64c328a681190a"
+  integrity sha1-K+MehGwgdn0b71a9ymTDKKaBGQo=
+  dependencies:
+    lodash "^4.17.5"
+
 webpack-sources@^1.0.1, webpack-sources@^1.1.0:
   version "1.3.0"
   resolved "http://registry.npm.taobao.org/webpack-sources/download/webpack-sources-1.3.0.tgz#2a28dcb9f1f45fe960d8f1493252b5ee6530fa85"

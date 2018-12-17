@@ -1,11 +1,3 @@
-import React, { PureComponent } from 'react'
+import Todos from './demos/todolist'
 
-export default class Index extends PureComponent {
-  render() {
-    return (
-      <div>
-        <p className="title">Hello React-webpack</p>
-      </div>
-    )
-  }
-}
+export default Todos
