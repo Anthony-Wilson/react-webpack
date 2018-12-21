@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux'
 let initState = {
   todos: [],
-  visibilityFilter: "SHOW_ALL"
+  visibilityFilter: "SHOW_ACTIVE"
 }
 
 const todos = (state=initState.todos, action) => {

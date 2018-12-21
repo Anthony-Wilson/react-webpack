@@ -11,7 +11,7 @@ const AddTodo = ({dispatch}) => {
   let input
   return (
     <div className='header'>
-      <h1 lcas>reaci-redux  todo list</h1>
+      <h1 lcas>react-redux  todo list</h1>
       <InputGroup className="mb-3">
         <FormControl
           placeholder="请输入待添加的代办项"

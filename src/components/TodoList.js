@@ -11,7 +11,10 @@ const TodoList = ({todos, toggleTodo}) => {
           key={index}
           onClick={() => toggleTodo(item.index)}
           variant={item.complete ? 'success' : 'danger'}
-        >{item.text}</ListGroup.Item>)
+        >
+          <span className='name'>{item.text}</span>
+          <span className='state'>{item.complete ? '已完成' : '未完成'}</span>
+        </ListGroup.Item>)
       }
     </ListGroup>
   )

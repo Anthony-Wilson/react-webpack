@@ -1,8 +1,8 @@
 import React, { PureComponent } from 'react'
 
 import AddToto from './containers/AddTodo'
-import Handle from './components/Handle'
 import VisibleFilter from './containers/VisibleFilter'
+import Filter from './containers/Filter'
 
 export default class Index extends PureComponent {
   render() {
@@ -10,7 +10,7 @@ export default class Index extends PureComponent {
       <div>
         <AddToto/>
         <VisibleFilter/>
-        <Handle/>
+        <Filter/>
       </div>
     )
   }
