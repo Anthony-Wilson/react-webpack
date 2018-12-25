@@ -22,4 +22,4 @@ import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
 <Route path='/desc' component={Desc}/>
 <Route path='/us' component={Us}/>
 ```
-这样设置的。此时如果需要让首页的内容在其他的路由上面不显示，需要在首页路由即`<Route path='/' component={Home}/>`上面添加一个属性`exact`，即`<Route exact path='/' component={Home}/>`。这样就可以了。具体可以看[exact](https://reacttraining.com/react-router/web/api/Route/exact-bool)
+这样设置的。此时如果需要让首页的内容在其他的路由上面不显示，需要在首页路由即`<Route path='/' component={Home}/>`上面添加一个属性`exact`，即`<Route exact path='/' component={Home}/>`。这样就可以了。具体可以看[exact](https://reacttraining.com/react-router/web/api/Route/exact-bool)。具体的说法是：exact控制匹配到`/`路径时不会再继续向下匹配。react-route的基本的使用教程可以查看[React-router4简约教程](http://react-china.org/t/react-router4/15843)
