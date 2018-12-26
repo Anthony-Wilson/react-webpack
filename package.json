@@ -10,6 +10,7 @@
     "start": "cross-env webpack-dev-server"
   },
   "dependencies": {
+    "mockjs": "^1.0.1-beta3",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
     "react-redux": "^6.0.0",
